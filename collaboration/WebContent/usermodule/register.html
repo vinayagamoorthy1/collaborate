@@ -1,0 +1,48 @@
+<div ng-controller="userController as ctrl">
+<form ng-submit="ctrl.register()"> 
+<div class="row">
+<div class=col-xs-3>
+<img src="./images/signup.png" style="position:fixed;"> </div></div>
+<div class="form-group col-xs-offset-7 col-xs-3">
+<h4 id="top1" class="text-danger">Create an account</h4>
+<input type="text" class="form-control" placeholder="userid" ng-model="ctrl.user.id" required="true" id="a"/>
+<p id="b"></p></div>
+
+<div class="form-group col-xs-offset-7 col-xs-3">
+<input type="name" class="form-control" placeholder="enter name" ng_model="ctrl.user.name" required="true"  />
+<p id="b1"></p></div>
+<div class="form-group col-xs-offset-7 col-xs-3">
+<input type="password" class="form-control" placeholder="enter password" ng_model="ctrl.user.password" required="true"/>
+<p id="b2"></p></div>
+
+<div class="form-group col-xs-offset-7 col-xs-3">
+<input type="text" class="form-control" placeholder="enter email" ng_model="ctrl.user.email" required="true"/>
+<p id="b2"></p></div>
+
+<div class="form-group col-xs-offset-7 col-xs-3">
+<input type="text" class="form-control" placeholder="enter address" ng_model="ctrl.user.address" required="true"/>
+<p id="b2"></p></div>
+
+<div class="form-group col-xs-offset-7 col-xs-3">
+<input type="text" class="form-control" placeholder="enter mobile" ng_model="ctrl.user.mobile" required="true"/>
+<p id="b2"></p></div>
+
+<div class="form-group col-xs-offset-7 col-xs-3">
+<input type="text" class="form-control" placeholder="enter role" ng_model="ctrl.user.role" required="true"/>
+<p id="b2"></p></div>
+<div class="row">
+<div class="form-group col-xs-offset-4 col-xs-10">
+<center>
+By clicking Create an account,you agree to our Terms and confirm <br>
+that you have read our Data Policy, including our Cookie Use Policy. <br>
+You may receive SMS message notifications from Blog and can opt out at any time.</center>
+</div></div>
+<div class="row">
+<div class="form-group col-xs-offset-8 col-xs-10">
+<input type="submit"  value="submit">
+</div>
+</div>
+</form>
+</div>
+
+

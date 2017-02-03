@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="resources/bootstrap/bootstrap.css">
+<script src="resources/bootstrap/jquery-3.1.1.js"></script>
+<script src="resources/bootstrap/bootstrap.js"></script>
+<script src="resources/angular/angular.js"></script>
+<script src="resources/angular/angular-route.js"></script>
+<script src="resources/angular/angular-cookies.js"></script>
+<script src="resources/angular/sockjs.js"></script>
+<script src="resources/angular/stomp.js"></script>
+
+
+<script src="app.js"></script>
+<script src="usermodule/userController.js"></script>
+<script src="usermodule/userService.js"></script>
+<script src="usermodule/c_blog/blogController.js"></script>
+<script src="usermodule/c_blog/blogService.js"></script>
+<script src="usermodule/event/eventController.js"></script>
+<script src="usermodule/event/eventService.js"></script>
+<script src="usermodule/c_job/jobController.js"></script>
+<script src="usermodule/c_job/jobService.js"></script>
+<script src="usermodule/c_friend/friendController.js"></script>
+<script src="usermodule/c_friend/friendService.js"></script>
+<script src="usermodule/chatmodule/ChatController.js"></script>
+<script src="usermodule/chatmodule/ChatService.js"></script>
+</head>
+
+<body ng-app="App"  style="background: rgb(224,255,255)"> 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#/collabaration">COLLABARATION</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active">
+      </li><li><a href="#">Home</a></li>
+       <li><a class="dropdown-toggle" data-toggle="dropdown" >Blog
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu"  >
+            <li><a href="#/viewblog">View Blog</a></li>
+            <li ng-show="currentUser.role=='admin'"><a href="#newblogs">New Blogs</a></li>
+    <li  ng-show="currentUser.role=='alumni' || currentUser.role=='student' || currentUser.role=='EMPLOYEE'"><a href="#/blog">Create Blog</a></li>
+    <li  ng-show="currentUser.role=='alumni' || currentUser.role=='student' || currentUser.role=='EMPLOYEE'"><a href="#myblog">My Blog</a></li></ul>
+      </li>
+       
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Event
+      <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+      <li ng-show="currentUser.role=='admin'"><a href="#/postevent">Post Event</a></li>
+      <li><a href="#/event">View Events</a></li>
+      </ul>
+      </li>
+      
+      <li><a href="#/list">users</a></li>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" >Jobs
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu" ng-controller="jobControl as jctrl">
+      <li><a href="#/viewblog" ng-click="jctrl.viewNewJobs()">view jobs</a></li>
+    <li ng-show="currentUser.role=='alumni' || currentUser.role=='student' || currentUser.role=='user'|| currentUser.role=='EMPLOYEE'"><a href="#/applied">applied jobs</a></li>
+    <li ng-show="currentUser.role=='admin'"><a href="#/postjob">post job</a></li>
+        </ul>
+      </li>
+    </ul>
+      
+   <ul class="nav navbar-nav navbar-right" >
+  <ul class="nav navbar-nav navbar-right">
+ <li  ng-hide="currentUser.role=='admin' || currentUser.role=='alumni' || currentUser.role=='student' || currentUser.role=='EMPLOYEE'">
+ <li ng-hide="currentUser.role=='admin' || currentUser.role=='alumni' || currentUser.role=='student' || currentUser.role=='EMPLOYEE'"class="news">
+  <li class="dropdown" ng-show="currentUser.role=='admin' || currentUser.role=='alumni' || currentUser.role=='student' || currentUser.role=='EMPLOYEE' || currentUser.role=='user'">
+        <a class="dropdown-toggle" data-toggle="dropdown" >Friends<span ng-show="reqcount>=1" class="label label-success label-as-badge">New</span>
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu"  >
+    <li ><a href="#/friends">Search friends</a></li>
+  <li><a href="#/friendrequest">Friend Requests <span ng-show="reqcount>=1">({{reqcount}})</span></a></li>
+ <li><a href="#/myrequest">My Requests</a></li>
+ <li><a href="#/myfriends">My Friends</a></li>
+ 
+ </ul>
+  <li ><a href="#/chat">chat</a></li>
+ 
+
+  <li ng-show="currentUser.role=='admin' || currentUser.role=='alumni' || currentUser.role=='STUDENT' || currentUser.role=='EMPLOYEE' || currentUser.role=='user'"><a href="#/login" ng-click="ctrl.logout()">Logout</a></li>
+   
+     <li ng-show="currentUser.role=='user' || 'admin' ||'student'|| 'employee'"><a href="#/register"><span ></span> Sign Up</a></li>
+      <li ng show="currentUser.role!='user' || 'admin' ||'student'|| 'employee'"><a href="#/login" ng-click="ctrl.logout()">Login</a></li>
+  </ul>
+     <div ng-controller="userController as ctrl">
+
+ 
+    
+      
+     </li></li>
+     </ul>
+       
+    </ul>
+    </div>
+</nav>
+<style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      
+  }
+  </style>
+</head>
+<body><div ng-view class="text-primary"></div><hr>
+<br>
+
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+
+
+<title>List Of Users</title>
+
+<div ng-controller="userController as ctrl" ng-init="ctrl.listofuser()">
+<div ng-repeat="x in ctrl.users">
+ID:{{x.id}}<br>
+NAME:{{x.name}}<br>
+EMAIL:{{x.email}}<br>
+ADDRESS:{{x.address}}<br>
+MOBILE:{{x.mobile}}<br>
+ROLE:{{x.role}}<br><hr>
+</div>
+</div>
